@@ -49,7 +49,7 @@ Example: A DNS Cache Poisoning challenge might require:
 1. **Clone and Install**
    ```bash
    git clone <repository-url>
-   cd web-ctf-platform
+   cd ctf-platform
    ```
 
 2. **Install Dependencies**
@@ -69,6 +69,7 @@ Example: A DNS Cache Poisoning challenge might require:
    cp env.example .env
    
    # Edit .env file with your preferred settings
+   # Use  Generate_Secrets.py to generate secret key, jwt secret key, and admin password.
    # At minimum, change the SECRET_KEY and JWT_SECRET_KEY
    ```
 
