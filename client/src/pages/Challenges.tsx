@@ -59,25 +59,25 @@ const Challenges = () => {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Challenges</h1>
-        <div className="flex items-center space-x-2">
+    <div className="space-y-8">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Challenges</h1>
+        <div className="flex items-center justify-center space-x-2">
           <Trophy className="h-5 w-5 text-primary-600" />
-          <span className="text-sm text-gray-600">
+          <span className="text-lg text-gray-600">
             {filteredChallenges.length} challenges available
           </span>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="card p-6">
-        <div className="flex items-center space-x-4">
-          <Filter className="h-5 w-5 text-gray-500" />
-          <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+      <div className="card p-8 text-center">
+        <div className="flex items-center justify-center space-x-4 mb-6">
+          <Filter className="h-6 w-6 text-primary-600" />
+          <h2 className="text-xl font-semibold text-gray-900">Filters</h2>
         </div>
         
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Category
@@ -131,42 +131,42 @@ const Challenges = () => {
       </div>
 
       {/* Challenges Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {filteredChallenges.map((challenge: Challenge) => (
-          <div key={challenge.id} className="card p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center justify-between mb-3">
+          <div key={challenge.id} className="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
+            <div className="flex items-center justify-center space-x-4 mb-4">
               <span className={`badge ${getDifficultyColor(challenge.difficulty)}`}>
                 {challenge.difficulty}
               </span>
-              <span className="text-sm font-medium text-gray-500">
+              <span className="text-lg font-medium text-gray-500">
                 {challenge.points} pts
               </span>
             </div>
 
-            <div className="flex items-center space-x-2 mb-2">
-              <Target className="h-4 w-4 text-primary-600" />
-              <span className="text-sm text-gray-600">{challenge.category_name}</span>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Target className="h-5 w-5 text-primary-600" />
+              <span className="text-sm text-gray-600 font-medium">{challenge.category_name}</span>
             </div>
 
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">
               {challenge.title}
             </h3>
             
-            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+            <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
               {challenge.description}
             </p>
 
-            <div className="flex items-center justify-between">
+            <div className="space-y-4">
               <Link
                 to={`/challenges/${challenge.id}`}
-                className="btn-primary text-sm px-4 py-2"
+                className="btn-primary w-full text-center py-3"
               >
                 View Challenge
               </Link>
               
               {challenge.solved && (
-                <div className="flex items-center text-green-600 text-sm">
-                  <Lock className="h-4 w-4 mr-1" />
+                <div className="flex items-center justify-center text-green-600 text-sm font-medium">
+                  <Lock className="h-4 w-4 mr-2" />
                   Solved
                 </div>
               )}

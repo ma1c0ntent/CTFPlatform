@@ -50,14 +50,14 @@ const Leaderboard = () => {
   const userRank = getUserRank()
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center">
-        <div className="flex items-center justify-center space-x-3 mb-4">
-          <Trophy className="h-8 w-8 text-primary-600" />
-          <h1 className="text-3xl font-bold text-gray-900">Leaderboard</h1>
+        <div className="flex items-center justify-center space-x-4 mb-6">
+          <Trophy className="h-10 w-10 text-primary-600" />
+          <h1 className="text-4xl font-bold text-gray-900">Leaderboard</h1>
         </div>
-        <p className="text-gray-600">
+        <p className="text-xl text-gray-600">
           See how you stack up against other cybersecurity enthusiasts
         </p>
       </div>

@@ -36,17 +36,17 @@ const Profile = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-8">
       {/* Profile Header */}
-      <div className="card p-6">
-        <div className="flex items-center space-x-6">
-          <div className="h-20 w-20 bg-primary-100 rounded-full flex items-center justify-center">
-            <User className="h-10 w-10 text-primary-600" />
+      <div className="card p-8 text-center">
+        <div className="flex flex-col items-center space-y-6">
+          <div className="h-24 w-24 bg-primary-100 rounded-full flex items-center justify-center">
+            <User className="h-12 w-12 text-primary-600" />
           </div>
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900">{user.username}</h1>
-            <p className="text-gray-600">{user.email}</p>
-            <div className="flex items-center space-x-4 mt-2">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">{user.username}</h1>
+            <p className="text-xl text-gray-600">{user.email}</p>
+            <div className="flex items-center justify-center space-x-6 mt-4">
               <div className="flex items-center space-x-1">
                 <Trophy className="h-4 w-4 text-primary-600" />
                 <span className="text-sm font-medium">{user.total_score} points</span>
