@@ -33,7 +33,19 @@ from models import db, User
 db.init_app(app)
 jwt = JWTManager(app)
 migrate = Migrate(app, db)
-CORS(app, origins=['http://localhost:3000'], supports_credentials=True)
+# Allow CORS from localhost and any Vite dev host when developing
+frontend_origin = os.environ.get('FRONTEND_ORIGIN')
+if frontend_origin:
+    CORS(app, origins=[frontend_origin], supports_credentials=True)
+else:
+    # Fallback for development: allow typical dev hosts and public IPs
+    CORS(app, origins=[
+        'http://localhost:3000',
+        'http://127.0.0.1:3000',
+        r'http://192\.168\.[0-9]{1,3}\.[0-9]{1,3}:3000',
+        r'http://10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:3000',
+        r'http://172\.(1[6-9]|2[0-9]|3[0-1])\.[0-9]{1,3}\.[0-9]{1,3}:3000'
+    ], supports_credentials=True)
 
 # JWT configuration - simplified
 
