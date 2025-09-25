@@ -232,7 +232,7 @@ def create_sample_data():
                 'title': 'Log Analysis - Attack Type',
                 'description': 'Analyze this web server log excerpt. What type of attack is being attempted? Submit the attack type as flag{attack_type}.',
                 'flag': 'flag{sql_injection}',
-                'points': 150,
+                'points': 100,
                 'difficulty': 'Medium',
                 'category_name': 'Web Security',
                 'challenge_data': '192.168.1.100 - - [23/Sep/2024:10:15:23 +0000] "GET /login.php?user=admin&pass=\' OR \'1\'=\'1 HTTP/1.1" 200 1567\n192.168.1.100 - - [23/Sep/2024:10:15:24 +0000] "GET /login.php?user=admin&pass=\'; DROP TABLE users; -- HTTP/1.1" 500 2341\n192.168.1.100 - - [23/Sep/2024:10:15:25 +0000] "GET /search.php?q=admin\' UNION SELECT password FROM users-- HTTP/1.1" 200 3421\n192.168.1.100 - - [23/Sep/2024:10:15:26 +0000] "GET /products.php?id=1\' AND 1=1-- HTTP/1.1" 200 2987\n192.168.1.100 - - [23/Sep/2024:10:15:27 +0000] "GET /products.php?id=1\' AND 1=2-- HTTP/1.1" 500 1456'
@@ -241,7 +241,7 @@ def create_sample_data():
                 'title': 'Malicious IP Detection',
                 'description': 'This is a network traffic log. Find the malicious IP address that is performing suspicious activities. Submit as flag{malicious_ip}.',
                 'flag': 'flag{10.0.0.42}',
-                'points': 125,
+                'points': 100,
                 'difficulty': 'Medium',
                 'category_name': 'Network Security',
                 'challenge_data': '2024-09-23 10:30:15 192.168.1.10 -> 8.8.8.8:53 DNS Query: google.com\n2024-09-23 10:30:16 192.168.1.11 -> 1.1.1.1:53 DNS Query: facebook.com\n2024-09-23 10:30:17 10.0.0.42 -> 192.168.1.100:22 SSH: admin/admin123\n2024-09-23 10:30:18 10.0.0.42 -> 192.168.1.100:22 SSH: admin/password\n2024-09-23 10:30:19 10.0.0.42 -> 192.168.1.100:22 SSH: admin/123456\n2024-09-23 10:30:20 10.0.0.42 -> 192.168.1.100:80 HTTP GET /wp-admin/\n2024-09-23 10:30:21 192.168.1.12 -> 8.8.8.8:53 DNS Query: youtube.com\n2024-09-23 10:30:22 10.0.0.42 -> 192.168.1.100:80 HTTP GET /admin.php\n2024-09-23 10:30:23 10.0.0.42 -> 192.168.1.100:80 HTTP GET /login.php?cmd=whoami'
@@ -275,10 +275,10 @@ def create_sample_data():
             },
             {
                 'title': 'DNS Query Log',
-                'description': 'This DNS query log shows evidence of cache poisoning. Analyze the timing patterns and identify the malicious domain that is attempting to poison legitimate domains. What is the attack type and what is the IP address of the attacker?',
+                'description': 'This query log shows evidence of a DNS attack. Analyze the timing patterns and identify the malicious domain that is attempting to poison legitimate domains. What is the attack type and what is the IP address of the attacker?',
                 'flag': 'flag{dns_cache_poisoning}',
                 'multi_flags': '{"flag": "dns_cache_poisoning", "flag2": "10.0.0.50"}',
-                'points': 75,
+                'points': 125,
                 'difficulty': 'Medium',
                 'category_name': 'Network Security',
                 'challenge_data': 'Sep 23 10:30:01 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:02 DNS Query: amazon.com -> 1.1.1.1 (resolves to 54.239.28.85)\nSep 23 10:30:03 DNS Query: google.com -> 8.8.8.8 (resolves to 142.250.191.14)\nSep 23 10:30:04 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:05 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:06 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:07 DNS Query: microsoft.com -> 1.1.1.1 (resolves to 20.70.246.20)\nSep 23 10:30:08 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:09 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:10 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:11 DNS Query: facebook.com -> 8.8.8.8 (resolves to 31.13.69.35)\nSep 23 10:30:12 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:13 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:14 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:15 DNS Query: youtube.com -> 1.1.1.1 (resolves to 142.250.191.14)\nSep 23 10:30:16 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:17 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:18 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:19 DNS Query: github.com -> 8.8.8.8 (resolves to 140.82.112.4)\nSep 23 10:30:20 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:21 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:22 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:23 DNS Query: stackoverflow.com -> 1.1.1.1 (resolves to 151.101.1.69)\nSep 23 10:30:24 DNS Query: paypal.com -> 8.8.8.8 (resolves to 66.211.169.3)\nSep 23 10:30:25 DNS Query: paypal-security-verification.com -> 10.0.0.50 (resolves to 10.0.0.50)\nSep 23 10:30:26 DNS Query: paypal.com -> 10.0.0.50 (resolves to 10.0.0.50)'
@@ -296,8 +296,8 @@ def create_sample_data():
                 'title': 'C2 Beacon Detection',
                 'description': 'This network traffic log shows C2 beaconing activity. Find the C2 server domain and submit as flag{c2_domain}.',
                 'flag': 'flag{cdn.analytics-tracker.net}',
-                'points': 250,
-                'difficulty': 'Hard',
+                'points': 75,
+                'difficulty': 'Medium',
                 'category_name': 'Network Security',
                 'challenge_data': '2024-09-23 10:30:15 192.168.1.50 -> 8.8.8.8:53 DNS Query: google.com\n2024-09-23 10:30:20 192.168.1.50 -> 203.0.113.100:443 HTTPS GET /api/status\n2024-09-23 10:30:25 192.168.1.50 -> 8.8.8.8:53 DNS Query: facebook.com\n2024-09-23 10:30:30 192.168.1.50 -> 203.0.113.100:443 HTTPS GET /api/status\n2024-09-23 10:30:35 192.168.1.50 -> 1.1.1.1:53 DNS Query: youtube.com\n2024-09-23 10:30:40 192.168.1.50 -> 203.0.113.100:443 HTTPS GET /api/status\n2024-09-23 10:30:45 192.168.1.50 -> 8.8.8.8:53 DNS Query: cdn.analytics-tracker.net\n2024-09-23 10:30:46 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat\n2024-09-23 10:30:50 192.168.1.50 -> 8.8.8.8:53 DNS Query: amazon.com\n2024-09-23 10:30:55 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat\n2024-09-23 10:31:00 192.168.1.50 -> 1.1.1.1:53 DNS Query: microsoft.com\n2024-09-23 10:31:05 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat\n2024-09-23 10:31:10 192.168.1.50 -> 8.8.8.8:53 DNS Query: cdn.analytics-tracker.net\n2024-09-23 10:31:11 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat\n2024-09-23 10:31:15 192.168.1.50 -> 1.1.1.1:53 DNS Query: github.com\n2024-09-23 10:31:20 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat\n2024-09-23 10:31:25 192.168.1.50 -> 8.8.8.8:53 DNS Query: stackoverflow.com\n2024-09-23 10:31:30 192.168.1.50 -> 198.51.100.50:443 HTTPS GET /heartbeat'
             },
