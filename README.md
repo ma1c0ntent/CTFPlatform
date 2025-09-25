@@ -1,6 +1,6 @@
-# Web CTF Platform
+# CTF Platform
 
-A modern web-based Capture The Flag platform inspired by overthewire.org, designed to provide cybersecurity education through interactive challenges without requiring VM installations.
+A modern web-based Capture The Flag platform inspired by overthewire.org, hackthebox.com, and tryhackme.com, designed to provide cybersecurity education through interactive challenges without requiring VM installations.
 
 ## Features
 
@@ -40,16 +40,16 @@ Some challenges require multiple flag submissions to complete:
 - **Completion**: All parts must be submitted to receive full points
 - **Partial Credit**: Individual parts can be submitted independently
 
-Example: A DNS Cache Poisoning challenge might require:
-1. `flag{dns_cache_poisoning}` - The attack type
-2. `flag2{10.0.0.50}` - The attacker's IP address
+Example: A challenge might require:
+1. `flag{sql_injection}` - The attack type
+2. `flag2{192.168.0.27}` - The attacker's IP address
 
 ## Quick Start
 
 1. **Clone and Install**
    ```bash
    git clone <repository-url>
-   cd web-ctf-platform
+   cd ctf-platform
    ```
 
 2. **Install Dependencies**
@@ -69,6 +69,7 @@ Example: A DNS Cache Poisoning challenge might require:
    cp env.example .env
    
    # Edit .env file with your preferred settings
+   # Use  Generate_Secrets.py to generate secret key, jwt secret key, and admin password.
    # At minimum, change the SECRET_KEY and JWT_SECRET_KEY
    ```
 
@@ -89,7 +90,7 @@ Example: A DNS Cache Poisoning challenge might require:
 ## Project Structure
 
 ```
-web-ctf-platform/
+ctf-platform/
 ├── client/                 # React frontend
 │   ├── src/
 │   │   ├── components/     # React components
