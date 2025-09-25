@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { api } from '../services/api'
@@ -33,6 +33,22 @@ const ChallengeDetail = () => {
     },
     { enabled: !!id }
   )
+
+  // Initialize showMultiFlags when challenge loads
+  useEffect(() => {
+    if (challenge?.multi_flags) {
+      try {
+        const multiFlagsConfig = JSON.parse(challenge.multi_flags)
+        const initialShowFlags: {[key: string]: boolean} = {}
+        Object.keys(multiFlagsConfig).forEach(flagKey => {
+          initialShowFlags[flagKey] = true // Show by default
+        })
+        setShowMultiFlags(initialShowFlags)
+      } catch (e) {
+        console.error('Failed to parse multi_flags:', e)
+      }
+    }
+  }, [challenge?.multi_flags])
 
   const submitFlagMutation = useMutation(
     async (flag: string) => {
