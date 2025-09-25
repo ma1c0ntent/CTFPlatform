@@ -1,0 +1,20 @@
+{
+  "name": "web-ctf-platform",
+  "version": "1.0.0",
+  "description": "A web-based Capture The Flag platform inspired by overthewire.org",
+  "main": "server/app.py",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && python app.py",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && python app.py",
+    "install-all": "npm install && cd client && npm install && pip install -r requirements.txt"
+  },
+  "keywords": ["ctf", "cybersecurity", "education", "web-platform"],
+  "author": "CTF Platform",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
